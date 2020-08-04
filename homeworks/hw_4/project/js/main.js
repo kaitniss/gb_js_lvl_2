@@ -7,6 +7,7 @@ class List {
         this.url = url;
         this.goods = []; //массив товаров
         this.allProducts = [];//массив объектов с версткой
+        this.filtered = [];
         this._init();
     }
     getJson(url) {
@@ -22,6 +23,7 @@ class List {
     }
     calcSum() {
          return this.allProducts.reduce((accum, item) => accum += item.price, 0);
+         console.log(" ");
     }
     render() {
         const block = document.querySelector(this.container);
@@ -32,6 +34,19 @@ class List {
             block.insertAdjacentHTML("beforeend", productObj.render());
             //block.innerHTML += item.render();
         }
+    }
+    filter(value){
+        const regexp = new RegExp(value, 'i');
+        this.filtered = this.allProducts.filter(product => regexp.test(product.product_name)); //test как и метч
+        // ищет совпаденич
+        this.allProducts.forEach(el => {
+            const block = document.querySelector(`.product-item[data-id="${el.id_product}"]`);
+            if(!this.filtered.includes(el)){
+                block.classList.add('invisible');
+            } else {
+                block.classList.remove('invisible');
+            }
+        })
     }
     _init() {
         return false
@@ -67,13 +82,16 @@ class ProductsList extends List {
         this.getJson()
             .then(data => this.handleData(data));//handleData запускает отрисовку либо каталога товаров, либо списка товаров корзины
     }
-    _init() {
+    _init(){
         document.querySelector(this.container).addEventListener('click', e => {
             if(e.target.classList.contains('buy-btn')){
-                console.log(e.target);
                 this.cart.addProduct(e.target);
             }
         });
+        document.querySelector('.search-form').addEventListener('submit', e => {
+            e.preventDefault();
+            this.filter(document.querySelector('.search-field').value)
+        })
     }
 }
 
