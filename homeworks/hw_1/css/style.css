@@ -1,0 +1,112 @@
+body {
+	background-color: #e6fcfe;
+	width: 100%;
+	position: absolute;
+}
+
+.header {
+	text-align: center;
+	background: rgba(124, 215, 221, 0.44);
+	font-size: 40px;
+	align-items: center;
+}
+.logo {
+	float: left;
+}
+.btn-cart {
+	border-radius:    15px;
+	padding:          12px;
+	margin:           10px;
+	color:            #0a272d;
+	background-color: #ff2e64;
+	text-align:       center;
+	cursor:           pointer;
+	width:            250px;
+	font-size:        40px;
+	font-family:      "Amatic SC";
+	font-weight:      900;
+	text-transform:   uppercase;
+	letter-spacing:   3.4px;
+	float: right;
+}
+
+.btn-basket:hover {
+	background: rgba(68, 179, 231, 0.47);
+	color:      #490614;
+	transform:  scale(1.05);
+}
+.main {
+	margin: 0 auto;
+	width: 100%;
+	display: inline-flex;
+	flex-wrap: wrap;
+	position: relative;
+	justify-content: space-around;
+	}
+.products {
+	background:      #FFF9E2;
+	border: #0a272d 1px dotted;
+	position:        relative;
+	justify-content: space-between;
+	display:         inline-flex;
+	width:           70%;
+	margin:          30px;
+	padding: 30px;
+}
+.product-item {
+	width: 20%;
+	background: #80dee4;
+	font-weight: 700;
+	border-radius: 10px;
+	display: inline-block;
+	justify-content: space-around;
+	height: 300px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	margin: auto;
+	text-align: center;
+}
+.product-item:hover {
+	transform: scale(1.05);
+}
+
+.product-item h3 {
+	color: #352d39;
+	font-family: "Amatic SC";
+	font-size: 39px;
+	font-weight: 700;
+	text-align: center;
+	margin: 10px 0 5px 0;
+	height: 15%;
+}
+
+.product-item p {
+	color: #ff2e64;
+	font-size: 22px;
+	font-weight: 500;
+	text-transform: uppercase;
+	text-align: center;
+	height: 15%;
+}
+
+
+.product-item button {
+	border: none;
+	padding: 12px;
+	color: #304f51;
+	background-color:  #ffe785;
+	text-align: center;
+	cursor: pointer;
+	text-transform: uppercase;
+	width: 100%;
+	font-size: 18px;
+}
+
+.product-item button:hover {
+	background:  #0a272d;
+	color: #ffe785;
+}
+
+
+
+
+
