@@ -1,0 +1,38 @@
+body {
+	font-family: 'Roboto;', sans-serif;
+	background-color: #e6fcfe;
+}
+header {
+	background-color: rgba(128, 222, 228, 1);
+	color:            #57113e;
+}
+
+button {
+	height: 40px;
+	width: 110px;
+	background-color: rgb(255, 253, 158);
+	text-align: center;
+	margin: 5px 0px;
+}
+h3 {
+	color: #2a1157;
+}
+h3, p {
+	padding: 0px;
+	margin: 10px;
+}
+.container {
+	width: 70%;
+	margin: 0 auto;
+}
+
+input#email.invalid,
+input#phone.invalid,
+input#name.invalid {
+	border: 1px solid red;
+}
+
+.error-msg{
+	color:     #f13f3f;
+	font-size: 14px;
+}
