@@ -2,7 +2,7 @@
 ### Example user template template
 ### Example user template
 
-# IntelliJ project files
+# IntelliJ public files
 .idea
 *.iml
 .DS_Store
