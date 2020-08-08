@@ -1,10 +1,33 @@
 Vue.component('products', {
-   props: ['products', 'img'],
-   template: `<div class="products">
-                <product v-for="item of products" 
-                :key="item.id_product" 
-                :img="img"
-                :product="item"></product>
+    data() {
+        return {
+            catalogUrl: '/catalogData.json',
+            filtered: [],
+            products: [],
+            imgProduct: 'https://placehold.it/200x150'
+        }
+    },
+    mounted() {
+        this.$parent.getJson(`/api/products`)
+            .then(data => {
+                for (let item of data) {
+                    this.$data.products.push(item);
+                    this.$data.filtered.push(item);
+                }
+            });
+    },
+    methods: {
+        filter(userSearch) {
+            let regexp = new RegExp(userSearch, 'i');
+            this.filtered = this.products.filter(el => regexp.test(el.product_name));
+        }
+    },
+    template: `<div class="products">
+                <product v-for="item of filtered"
+                :key="item.id_product"
+                :img="imgProduct"
+                :product="item"
+                @add-product="$parent.$refs.cart.addProduct"></product>
                </div>`
 });
 
